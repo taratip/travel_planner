@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Travel Planner" %></title>
+
+    <%= stylesheet_link_tag    "application", media: 'all' %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+    <% flash.each do |type, message| %>
+      <div data-alert class="alert-box <%= type %>">
+        <%= message %>
+        <%= link_to "x", "#", class: :close %>
+      </div>
+    <% end %>
+    <div class="row">
+      <div class="small-12 columns">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>
