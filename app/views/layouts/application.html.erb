@@ -14,7 +14,11 @@
 
   <body>
     <% if current_user %>
-      <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+      <li><%= link_to 'Profile', edit_user_registration_path %></li>
+      <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to 'Sign in', new_user_session_path %></li>
+      <li><%= link_to "Sign up", new_user_registration_path %></li>
     <% end %>
     <% flash.each do |type, message| %>
       <div data-alert class="alert-box <%= type %>">
