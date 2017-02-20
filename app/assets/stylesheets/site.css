@@ -1,0 +1,42 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: auto;
+  float: none;
+}
+
+body#landing-wrapper {
+  background: url(https://c1.staticflickr.com/3/2210/2331221708_e85183929c_b.jpg) no-repeat 50% 50% fixed;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+}
+
+.home-message {
+  position: absolute;;
+  margin-top: 20%;
+  text-align: center;
+}
+
+.home-message > h1 {
+  font-weight: bold;
+  font-family: sans-serif;
+  color: #b3b3b3;
+  text-shadow: 2px 2px 1px #404040;
+}
+
+.button.hollow.secondary {
+  color: white;
+  border-color: white;
+}
+
+.title-color {
+  color: white;
+}
+
+em.small-em,
+i.small-em {
+  font-size: 0.875rem;
+}

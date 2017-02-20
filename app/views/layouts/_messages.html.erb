@@ -1,0 +1,14 @@
+<% flash.each do |type, message| %>
+  <% if type == "notice" %>
+    <div class="callout success" data-closable>
+  <% elsif type == "alert" %>
+    <div class="callout alert" data-closable>
+  <% else %>
+    <div class="callout <%= type %>" data-closable>
+  <% end %>
+    <%= message %>
+    <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>

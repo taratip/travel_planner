@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Travel Planner" %></title>
+
+    <%= stylesheet_link_tag    "application", media: 'all' %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class="top-bar">
+      <div class="top-bar-title title-color">
+        <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
+          <button class="menu-icon dark" type="button" data-toggle></button>
+        </span>
+        <strong>Travel Planner</strong>
+      </div>
+      <div id="responsive-menu">
+        <div class="top-bar-right">
+          <ul class="menu">
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <li><%= link_to "Sign in", new_user_session_path %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <%= render 'layouts/messages' %>
+    <div class="row">
+      <div class="small-12 columns">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>
