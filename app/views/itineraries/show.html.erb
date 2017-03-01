@@ -1,0 +1,5 @@
+<h2><%= @itinerary.name %></h2>
+<%= @itinerary.start_date.strftime("%b,%d %Y") %>
+<%= @itinerary.end_date.strftime("%b,%d %Y") %>
+<%= link_to "Edit", edit_itinerary_path(@itinerary) %>
+<%= link_to "Delete", @itinerary, method: :delete %>
