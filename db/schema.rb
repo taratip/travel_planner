@@ -16,13 +16,13 @@ ActiveRecord::Schema.define(version: 20170220034244) do
   enable_extension "plpgsql"
 
   create_table "itineraries", force: :cascade do |t|
-    t.integer  "user_id",                 null: false
-    t.string   "name",       default: "", null: false
-    t.datetime "start_date",              null: false
-    t.datetime "end_date",                null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.index ["name"], name: "index_itineraries_on_name", unique: true, using: :btree
+    t.integer  "user_id",                       null: false
+    t.string   "name",             default: "", null: false
+    t.string   "destination_city",              null: false
+    t.datetime "start_date",                    null: false
+    t.datetime "end_date",                      null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.index ["user_id"], name: "index_itineraries_on_user_id", using: :btree
   end
 

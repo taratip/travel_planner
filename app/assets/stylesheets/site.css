@@ -2,13 +2,14 @@ html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
+  /*height: 100%;
   width: auto;
-  float: none;
+  float: none;*/
 }
 
 body#landing-wrapper {
-  background: url(https://c1.staticflickr.com/3/2210/2331221708_e85183929c_b.jpg) no-repeat 50% 50% fixed;
+  background: url(https://c1.staticflickr.com/3/2210/2331221708_e85183929c_b.jpg) center center no-repeat fixed;
+  background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   -webkit-background-size: cover;
@@ -36,7 +37,16 @@ body#landing-wrapper {
   color: white;
 }
 
-em.small-em,
-i.small-em {
+.small-em {
   font-size: 0.875rem;
+}
+
+.thumbnail {
+  border: none;
+  border-radius: 5%;
+}
+
+.thumbsize {
+  max-width: 150px;
+  height: 100px;
 }

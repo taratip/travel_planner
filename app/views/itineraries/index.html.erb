@@ -1,9 +1,17 @@
-<h1>Itineraries</h1>
-<div id="itineraries-wrapper">
-  <ul>
+<h3>Itineraries</h3>
+<div class="row small-up-1 medium-up-3 large-up-4">
     <% @itineraries.each do |itinerary| %>
-      <li><%= link_to itinerary.name, itinerary %></li>
+      <div class="column column-block">
+        <div class="callout">
+          <h5><%= link_to itinerary.name, itinerary %></h5>
+          <img class="thumbnail thumbsize" src="/assets/default_travel.jpg">
+          <p><%= itinerary.destination_city %><br />
+          <%= itinerary.start_date.strftime("%B %d") %> - <%= itinerary.end_date.strftime("%B %d, %Y") %>
+          </p>
+          <%= link_to "Edit", edit_itinerary_path(itinerary) %> |
+          <%= link_to "Delete", itinerary, method: :delete %>
+        </div>
+      </div>
     <% end %>
-  </ul>
 </div>
 <%= link_to 'New itinerary', new_itinerary_path %>

@@ -12,7 +12,7 @@ feature 'user deletes itinerary', %q(
 ) do
   let!(:user) { FactoryGirl.create(:user) }
   let!(:user2) { FactoryGirl.create(:user) }
-  let!(:thailand) { Itinerary.create(user_id: user.id, name: "Thailand", start_date: "2017-03-25", end_date: "2017-04-01") }
+  let!(:thailand) { Itinerary.create(user_id: user.id, name: "Thailand", destination_city: "Bangkok, Thailand", start_date: "2017-03-25", end_date: "2017-04-01") }
 
   scenario 'user deletes the itinerary from its edit page' do
     sign_in user

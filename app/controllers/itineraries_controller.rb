@@ -2,7 +2,7 @@ class ItinerariesController < ApplicationController
   before_action :set_itinerary, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user
   def index
-    @itineraries = Itinerary.all
+    @itineraries = Itinerary.order(start_date: :desc)
   end
 
   def show
@@ -56,6 +56,7 @@ class ItinerariesController < ApplicationController
   def itinerary_params
     params.require(:itinerary).permit(
       :name,
+      :destination_city,
       :start_date,
       :end_date
     )

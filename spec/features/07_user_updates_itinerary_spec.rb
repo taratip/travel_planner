@@ -14,7 +14,7 @@ feature 'user updates itinerary', %q(
   let!(:user) { FactoryGirl.create(:user) }
   let!(:user2) { FactoryGirl.create(:user) }
 
-  let!(:thailand) { Itinerary.create(user_id: user.id, name: "Thailand", start_date: "2017-03-25", end_date: "2017-04-01") }
+  let!(:thailand) { Itinerary.create(user_id: user.id, name: "Thailand", destination_city: "Bangkok, Thailand", start_date: "2017-03-25", end_date: "2017-04-01") }
 
   scenario 'user edits the itinerary from the details page' do
     sign_in user
@@ -30,6 +30,7 @@ feature 'user updates itinerary', %q(
     visit edit_itinerary_path(thailand)
 
     fill_in "Name", with: "Thailand - Bangkok"
+    fill_in "Destination city", with: "Bangkok, Thailand"
     fill_in "Start date", with: "2017-03-25"
     fill_in "End date", with: "2017-04-01"
 
@@ -44,12 +45,14 @@ feature 'user updates itinerary', %q(
     visit edit_itinerary_path(thailand)
 
     fill_in "Name", with: ""
+    fill_in "Destination city", with: ""
     fill_in "Start date", with: ""
     fill_in "End date", with: ""
 
     click_on "Save"
 
     expect(page).to have_content("Name can't be blank")
+    expect(page).to have_content("Destination city can't be blank")
     expect(page).to have_content("Start date can't be blank")
     expect(page).to have_content("End date can't be blank")
   end
@@ -60,6 +63,7 @@ feature 'user updates itinerary', %q(
     visit edit_itinerary_path(thailand)
 
     fill_in "Name", with: "Thailand - Bangkok"
+    fill_in "Destination city", with: "Bangkok, Thailand"
     fill_in "Start date", with: "2017-03-25"
     fill_in "End date", with: "2017-04-01"
 
