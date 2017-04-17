@@ -1,0 +1,9 @@
+<h2><%= @hotel_booking.location_name %></h2>
+Address: <%= @hotel_booking.address %>
+Phone: <%= @hotel_booking.phone_number %>
+Arrival Date: <%= @hotel_booking.arrival_date.strftime("%B %d, %Y") %> - <%= @hotel_booking.arrival_time.strftime("%I:%M%p") %>
+Depararture Date: <%= @hotel_booking.departure_date.strftime("%B %d, %Y") %> - <%= @hotel_booking.departure_time.strftime("%I:%M%p") %>
+Confirmation number: <%= @hotel_booking.confirmation_number %>
+Note: <%= @hotel_booking.note %>
+<%= link_to "Edit", edit_itinerary_hotel_booking_path(@itinerary, @hotel_booking) %>
+<%= link_to "Delete", [@itinerary, @hotel_booking], method: :delete %>

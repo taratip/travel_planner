@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :itineraries
   attr_accessor :login
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -7,7 +8,7 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: { case_sensitive: false}
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, multiline: true
-  
+
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)

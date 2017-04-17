@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170220034244) do
+ActiveRecord::Schema.define(version: 20170416194619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "hotel_bookings", force: :cascade do |t|
+    t.integer  "itinerary_id",                                        null: false
+    t.string   "location_name",       default: "",                    null: false
+    t.string   "address"
+    t.string   "phone_number"
+    t.datetime "arrival_date",                                        null: false
+    t.time     "arrival_time",        default: '2000-01-01 14:00:00'
+    t.datetime "departure_date",                                      null: false
+    t.time     "departure_time",      default: '2000-01-01 10:00:00'
+    t.string   "confirmation_number"
+    t.text     "note"
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
+    t.index ["itinerary_id"], name: "index_hotel_bookings_on_itinerary_id", using: :btree
+  end
 
   create_table "itineraries", force: :cascade do |t|
     t.integer  "user_id",                       null: false

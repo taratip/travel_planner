@@ -7,5 +7,7 @@ Rails.application.routes.draw do
 
   root 'pages#index'
 
-  resources :itineraries
+  resources :itineraries do
+    resources :hotel_bookings
+  end
 end

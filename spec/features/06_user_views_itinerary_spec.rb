@@ -34,10 +34,6 @@ feature 'user views itinerary', %q(
     expect(page).to have_content("Apr 01, 2017")
   end
 
-  scenario 'user sees hotel bookings and flight bookings if available' do
-
-  end
-
   scenario 'unauthorized user attempts to view itinerary' do
     visit root_path
 
