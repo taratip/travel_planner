@@ -1,8 +1,10 @@
+
 <h2><%= @itinerary.name %></h2>
 <%= @itinerary.destination_city %>
 <%= @itinerary.start_date.strftime("%b %d, %Y") %>
 <%= @itinerary.end_date.strftime("%b %d, %Y") %>
 <ul>
+
 <% if @itinerary.hotel_bookings.count > 0 %>
 <% @itinerary.hotel_bookings.each do |hotel_booking| %>
   <li class="hotel-booking">

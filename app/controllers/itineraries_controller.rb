@@ -2,7 +2,7 @@ class ItinerariesController < ApplicationController
   before_action :set_itinerary, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user
   def index
-    @itineraries = Itinerary.order(start_date: :desc)
+    @itineraries = Itinerary.where(user_id: current_user).order(start_date: :desc)
   end
 
   def show
