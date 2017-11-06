@@ -11,10 +11,10 @@ feature 'user views hotel bookings in itinerary', %q(
   * I must be able to get to the hotel booking details from the itinerary details page
 ) do
 
-  let!(:user) { FactoryGirl.create(:user) }
-  let!(:thailand) { FactoryGirl.create(:itinerary, user: user, destination_city: "Bangkok", start_date: "2017-03-25", end_date: "2017-04-01") }
-  let!(:hotel_booking1) { FactoryGirl.create(:hotel_booking, itinerary: thailand, arrival_date: "2017-04-01", arrival_time: "2:00pm", departure_date: "2017-04-03", departure_time: "10:00am")}
-  let!(:hotel_booking2) { FactoryGirl.create(:hotel_booking, itinerary: thailand, arrival_date: "2017-04-04", arrival_time: "2:00pm", departure_date: "2017-04-05", departure_time: "10:00am")}
+  let!(:user) { FactoryBot.create(:user) }
+  let!(:thailand) { FactoryBot.create(:itinerary, user: user, destination_city: "Bangkok", start_date: "2017-03-25", end_date: "2017-04-01") }
+  let!(:hotel_booking1) { FactoryBot.create(:hotel_booking, itinerary: thailand, arrival_date: "2017-04-01", arrival_time: "2:00pm", departure_date: "2017-04-03", departure_time: "10:00am")}
+  let!(:hotel_booking2) { FactoryBot.create(:hotel_booking, itinerary: thailand, arrival_date: "2017-04-04", arrival_time: "2:00pm", departure_date: "2017-04-05", departure_time: "10:00am")}
 
   scenario "user can see hotel booking's lists on itinerary details" do
     sign_in user

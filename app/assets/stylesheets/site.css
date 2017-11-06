@@ -8,11 +8,12 @@ body {
 }
 
 body#landing-wrapper {
-  background: url(https://c1.staticflickr.com/3/2210/2331221708_e85183929c_b.jpg) center center no-repeat fixed;
+  background: url(/assets/background-photo.jpg) center center no-repeat fixed;
   background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   -webkit-background-size: cover;
+  background-color: #464646;
 }
 
 .home-message {
@@ -49,4 +50,10 @@ body#landing-wrapper {
 .thumbsize {
   max-width: 150px;
   height: 100px;
+}
+
+@media only screen and (max-width: 767px) {
+  body#landing-wrapper {
+    background-image: url(/images/background-photo-mobile-devices.jpg);
+  }
 }
