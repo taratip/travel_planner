@@ -10,8 +10,8 @@ feature 'user adds hotel booking to the itinerary', %q(
   * I must supply hotel's name, check-in date and check-out date
   * If I provide with incomplete information, I receive an error message
 ) do
-  let!(:user) { FactoryGirl.create(:user) }
-  let!(:user2) { FactoryGirl.create(:user) }
+  let!(:user) { FactoryBot.create(:user) }
+  let!(:user2) { FactoryBot.create(:user) }
   let!(:korea) { Itinerary.create(user_id: user.id, name: "South Korea", destination_city: "Seoul, Republic of Korea", start_date: "2017-03-25", end_date: "2017-04-01") }
 
   scenario 'user sees option to add a new hotel booking in itinerary details page' do

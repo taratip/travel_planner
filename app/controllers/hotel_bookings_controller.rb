@@ -33,7 +33,7 @@ class HotelBookingsController < ApplicationController
     if @itinerary.user == current_user
       @hotel_booking = @itinerary.hotel_bookings.find(params[:id])
       if @hotel_booking.update_attributes(hotel_booking_params)
-        redirect_to itinerary_hotel_booking_path(@itinerary, @hotel_booking),notice: 'Lodging was successfully updated.'
+        redirect_to itinerary_path(@itinerary),notice: 'Lodging was successfully updated.'
       else
         render :edit
       end

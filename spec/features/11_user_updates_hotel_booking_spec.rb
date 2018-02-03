@@ -10,14 +10,14 @@ feature 'user updates hotel booking', %q(
   * I must be presented with errors if I fill out the form incorrectly
   * I must be able to get to the edit page from the hotel booking's details page
 ) do
-  let!(:user) { FactoryGirl.create(:user) }
-  let!(:thailand) { FactoryGirl.create(:itinerary, user: user, destination_city: "Bangkok", start_date: "2017-03-25", end_date: "2017-04-01") }
-  let!(:hotel_booking1) { FactoryGirl.create(:hotel_booking, itinerary: thailand, arrival_date: "2017-04-01", arrival_time: "2:00pm", departure_date: "2017-04-03", departure_time: "10:00am")}
+  let!(:user) { FactoryBot.create(:user) }
+  let!(:thailand) { FactoryBot.create(:itinerary, user: user, destination_city: "Bangkok", start_date: "2017-03-25", end_date: "2017-04-01") }
+  let!(:hotel_booking1) { FactoryBot.create(:hotel_booking, itinerary: thailand, arrival_date: "2017-04-01", arrival_time: "2:00pm", departure_date: "2017-04-03", departure_time: "10:00am")}
 
   scenario "user gets to hotel booking's details from itinerary details" do
     sign_in user
 
-    visit itinerary_hotel_booking_path(thailand, hotel_booking1)
+    visit itinerary_path(thailand)
 
     expect(page).to have_content("Edit")
   end

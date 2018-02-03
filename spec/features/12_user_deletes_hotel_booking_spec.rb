@@ -11,26 +11,18 @@ feature 'user deletes hotel booking', %q(
   * I must be able to delete a hotel booking from the itinerary details page
 ) do
 
-  let!(:user) { FactoryGirl.create(:user) }
-  let!(:thailand) { FactoryGirl.create(:itinerary, user: user, destination_city: "Bangkok", start_date: "2017-03-25", end_date: "2017-04-01") }
-  let!(:hotel_booking1) { FactoryGirl.create(:hotel_booking, itinerary: thailand, arrival_date: "2017-04-01", arrival_time: "2:00pm", departure_date: "2017-04-03", departure_time: "10:00am")}
+  let!(:user) { FactoryBot.create(:user) }
+  let!(:thailand) { FactoryBot.create(:itinerary, user: user, destination_city: "Bangkok", start_date: "2017-03-25", end_date: "2017-04-01") }
+  let!(:hotel_booking1) { FactoryBot.create(:hotel_booking, itinerary: thailand, arrival_date: "2017-04-01", arrival_time: "2:00pm", departure_date: "2017-04-03", departure_time: "10:00am")}
 
   scenario 'User can delete a hotel booking from the itinerary details page' do
     sign_in user
 
     visit itinerary_path(thailand)
 
-    within(:css, 'ul > li.hotel-booking:last-child') do
+    within(:css, 'div.trip-item-row') do
       expect(page).to have_link("Delete")
     end
-  end
-
-  scenario 'User can delete a hotel booking from the hotel booking details page' do
-    sign_in user
-
-    visit itinerary_hotel_booking_path(thailand, hotel_booking1)
-
-    expect(page).to have_link("Delete")
   end
 
   scenario 'User can delete a hotel booking successfully' do

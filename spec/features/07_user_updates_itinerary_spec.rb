@@ -11,8 +11,8 @@ feature 'user updates itinerary', %q(
   * I must be able to get to the edit page from the itinerary details page
 ) do
 
-  let!(:user) { FactoryGirl.create(:user) }
-  let!(:user2) { FactoryGirl.create(:user) }
+  let!(:user) { FactoryBot.create(:user) }
+  let!(:user2) { FactoryBot.create(:user) }
 
   let!(:thailand) { Itinerary.create(user_id: user.id, name: "Thailand", destination_city: "Bangkok, Thailand", start_date: "2017-03-25", end_date: "2017-04-01") }
 

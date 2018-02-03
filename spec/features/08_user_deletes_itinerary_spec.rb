@@ -10,8 +10,8 @@ feature 'user deletes itinerary', %q(
   * I must be able to delete an itinerary from the itinerary details page
   * All hotel bookings and flight bookings associated with itinerary must be deleted
 ) do
-  let!(:user) { FactoryGirl.create(:user) }
-  let!(:user2) { FactoryGirl.create(:user) }
+  let!(:user) { FactoryBot.create(:user) }
+  let!(:user2) { FactoryBot.create(:user) }
   let!(:thailand) { Itinerary.create(user_id: user.id, name: "Thailand", destination_city: "Bangkok, Thailand", start_date: "2017-03-25", end_date: "2017-04-01") }
 
   scenario 'user deletes the itinerary from its edit page' do

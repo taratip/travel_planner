@@ -1,0 +1,29 @@
+<%= form_for([@itinerary, @flight_booking]) do |f| %>
+  <% if @flight_booking.errors.any? %>
+
+    <div class="callout alert" data-closable>
+      <h5><%= pluralize(@flight_booking.errors.count, "error") %> prohibited this itinerary from being saved:</h5>
+      <ul>
+        <% @flight_booking.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+      <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="medium-6 columns">
+      <%= f.label :confirmation_number %>
+      <%= f.text_field :confirmation_number, autofocus: true %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-6 columns">
+      <%= f.submit "Save", class: "button primary" %>
+    </div>
+  </div>
+<% end %>
