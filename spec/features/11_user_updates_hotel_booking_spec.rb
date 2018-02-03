@@ -17,7 +17,7 @@ feature 'user updates hotel booking', %q(
   scenario "user gets to hotel booking's details from itinerary details" do
     sign_in user
 
-    visit itinerary_hotel_booking_path(thailand, hotel_booking1)
+    visit itinerary_path(thailand)
 
     expect(page).to have_content("Edit")
   end

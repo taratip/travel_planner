@@ -3,18 +3,34 @@
 <%= @itinerary.destination_city %>
 <%= @itinerary.start_date.strftime("%b %d, %Y") %>
 <%= @itinerary.end_date.strftime("%b %d, %Y") %>
-<ul>
 
-<% if @itinerary.hotel_bookings.count > 0 %>
-<% @itinerary.hotel_bookings.each do |hotel_booking| %>
-  <li class="hotel-booking">
-    <%= hotel_booking.location_name %> <%= link_to "View", itinerary_hotel_booking_path(@itinerary, hotel_booking) %> <%= link_to "Delete", [@itinerary,hotel_booking], method: :delete %>
-    <%= hotel_booking.arrival_date.strftime("%b %d") %> - <%= hotel_booking.arrival_time.strftime("%I:%M%p") %><br />
-    <%= hotel_booking.departure_date.strftime("%b %d") %> - <%= hotel_booking.departure_time.strftime("%I:%M%p") %><br />
-  </li>
+  <% if @itinerary.hotel_bookings.count > 0 %>
+    <% @itinerary.hotel_bookings.each do |hotel_booking| %>
+      <div class="trip-item-row">
+        <%= hotel_booking.location_name %> <%= link_to "Edit", edit_itinerary_hotel_booking_path(@itinerary, hotel_booking) %> <%= link_to "Delete", [@itinerary,hotel_booking], method: :delete %><br />
+        Address: <%= hotel_booking.address %><br />
+        Phone: <%= hotel_booking.phone_number %><br />
+        Arrival Date: <%= hotel_booking.arrival_date.strftime("%B %d, %Y") %> - <%= hotel_booking.arrival_time.strftime("%I:%M%p") %><br />
+        Depararture Date: <%= hotel_booking.departure_date.strftime("%B %d, %Y") %> - <%= hotel_booking.departure_time.strftime("%I:%M%p") %><br />
+        Confirmation number: <%= hotel_booking.confirmation_number %><br />
+        Note: <%= hotel_booking.note %><br />
+
+
+        <%= hotel_booking.arrival_date.strftime("%b %d") %> - <%= hotel_booking.arrival_time.strftime("%I:%M%p") %><br />
+        <%= hotel_booking.departure_date.strftime("%b %d") %> - <%= hotel_booking.departure_time.strftime("%I:%M%p") %><br />
+      </div>
+    <% end %>
   <% end %>
-<% end %>
-</ul>
+
+  <% if @itinerary.flight_bookings.count > 0%>
+    <% @itinerary.flight_bookings.each do |flight_booking| %>
+      <div class="trip-item-row">
+        <%= flight_booking.confirmation_number %> <%= link_to "Edit", edit_itinerary_flight_booking_path(@itinerary, flight_booking) %> <%= link_to "Delete", [@itinerary, flight_booking], method: :delete %>
+      </div>
+    <% end %>
+  <% end %>
+
 <%= link_to "Edit", edit_itinerary_path(@itinerary) %>
 <%= link_to "Delete", @itinerary, method: :delete %>
 <%= link_to "Add Lodging", new_itinerary_hotel_booking_path(@itinerary) %>
+<%= link_to "Add Flight", new_itinerary_flight_booking_path(@itinerary) %>

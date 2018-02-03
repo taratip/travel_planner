@@ -1,14 +1,10 @@
-html,
-body {
+* {
   margin: 0;
   padding: 0;
-  /*height: 100%;
-  width: auto;
-  float: none;*/
 }
 
 body#landing-wrapper {
-  background: url(/assets/background-photo.jpg) center center no-repeat fixed;
+  background: url(/images/background-photo.jpg) center center no-repeat fixed;
   background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

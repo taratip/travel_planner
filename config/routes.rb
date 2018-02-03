@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
   resources :itineraries do
     resources :hotel_bookings
+    resources :flight_bookings
   end
 end

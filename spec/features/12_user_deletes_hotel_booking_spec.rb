@@ -20,17 +20,9 @@ feature 'user deletes hotel booking', %q(
 
     visit itinerary_path(thailand)
 
-    within(:css, 'ul > li.hotel-booking:last-child') do
+    within(:css, 'div.trip-item-row') do
       expect(page).to have_link("Delete")
     end
-  end
-
-  scenario 'User can delete a hotel booking from the hotel booking details page' do
-    sign_in user
-
-    visit itinerary_hotel_booking_path(thailand, hotel_booking1)
-
-    expect(page).to have_link("Delete")
   end
 
   scenario 'User can delete a hotel booking successfully' do

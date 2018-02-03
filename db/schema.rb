@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170416194619) do
+ActiveRecord::Schema.define(version: 20171106131620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "flight_bookings", force: :cascade do |t|
+    t.integer  "itinerary_id",                     null: false
+    t.string   "confirmation_number", default: "", null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.index ["itinerary_id"], name: "index_flight_bookings_on_itinerary_id", using: :btree
+  end
 
   create_table "hotel_bookings", force: :cascade do |t|
     t.integer  "itinerary_id",                                        null: false

@@ -39,10 +39,6 @@ feature 'user views hotel bookings in itinerary', %q(
 
     visit itinerary_path(thailand)
 
-    expect(page).to have_link("View")
-
-    visit itinerary_hotel_booking_path(thailand, hotel_booking1)
-
     expect(page).to have_content(hotel_booking1.location_name)
     expect(page).to have_content("1 Street name, City")
     expect(page).to have_content("123456789")
